@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import NASACard from "./NASACard";
+import CardGrid from "./styles/CardGird"
 import axios from "axios";
 
 function NASAGrid(){
@@ -7,7 +8,7 @@ function NASAGrid(){
 
   useEffect(()=>{
     axios
-      .get('https://api.nasa.gov/planetary/apod?api_key=fiJ0anE4tukk6Vd1QNH4e0NNjZNWOUAyi0brdVjK')
+      .get('https://api.nasa.gov/planetary/apod?api_key=fiJ0anE4tukk6Vd1QNH4e0NNjZNWOUAyi0brdVjK&start_date=2020-06-01&hd=true&end_date=2020-06-09')
       .then(res => {
         console.log(res.data)
         setNasaData(res.data)
@@ -16,24 +17,28 @@ function NASAGrid(){
   }, [])
 
   return (
-  //   <h4>{props.date}</h4>
-  //   <p>{props.explantion}</p>
-  // <p>{props.copyright}</p>
-    <div>   
- 
-    <NASACard 
-    title={nasaData.title}
-    url={nasaData.hdurl}
-    date={nasaData.date}
-    explanation={nasaData.explanation}
-    copyright={nasaData.copyright}
 
-    
-    />
+    <CardGrid >   
+      
+      {nasaData.map(crrV => {
+        return (
+          <NASACard 
+          title={crrV.title}
+          url={crrV.hdurl}
+          date={crrV.date}
+          explanation={crrV.explanation}
+          copyright={crrV.copyright}
+          />
+        )
+
+      })
+      
+      }
+ 
 
     
       
-    </div>
+    </CardGrid>
   )
 }
 

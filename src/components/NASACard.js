@@ -1,15 +1,25 @@
 import React from "react";
+import styled from "styled-components";
+import CardContainer from "./styles/CardContainer"
+import CardInnerBox from "./styles/CardInnerBox";
+import CardIMG from "./styles/CardIMG";
+import CardHeading from "./styles/CardHeading";
+
 
 function NASACard(props){
   
   return (
-    <div>
-  
-    <h1>{props.title}</h1>
-    <img src={props.url} alt=""/>
-    <h4>{props.date}</h4>
+
+    <CardContainer>
+    <CardInnerBox>
+      <CardIMG src={props.url} alt=""/>
+      <CardHeading>{props.title}</CardHeading>
+    </CardInnerBox>
+    
+
+    {/* <h4>{props.date}</h4>
     <p>{props.explanation}</p>
-  <p>{props.copyright}</p>
+  <p>{props.copyright}</p> */}
 
       {/* <div>
         <img src="" alt=""/>
@@ -18,7 +28,7 @@ function NASACard(props){
       <p>"explanation":</p>
       <p>"date":</p>
       <p>"copyright":</p> */}
-    </div>
+    </CardContainer>
     
 
   )
