@@ -1,15 +1,15 @@
 import React from "react";
+import NASAGrid from "./components/NASAGrid"
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <NASAGrid />
     </div>
   );
 }
 
 export default App;
+
+// API Key: fiJ0anE4tukk6Vd1QNH4e0NNjZNWOUAyi0brdVjK
